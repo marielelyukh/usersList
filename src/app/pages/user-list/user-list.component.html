@@ -1,0 +1,45 @@
+<div class="container col-12">
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="float-end pb-2">
+        <button mat-flat-button color="primary" [disabled]="showForm" (click)="toggleUserForm()">Create user</button>
+      </div>
+      <table mat-table [dataSource]="users" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef> First name </th>
+        <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef> Last name </th>
+        <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="user_type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.user_type}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </div>
+    <div class="col-lg-3" *ngIf="showForm">
+      <app-create-user [showForm]="showForm" (onUserCreated)="onUserCreated()"></app-create-user>
+    </div>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-content>
+    <h2>Create new user</h2>
+    <form [formGroup]="form">
+
+      <label for="username">Username </label>
+      <input required id="username" type="text" formControlName="username">
+
+      <label for="first-name">First Name </label>
+      <input required id="first-name" type="text" formControlName="first_name">
+
+      <label for="last-name">Last Name </label>
+      <input required id="last-name" type="text" formControlName="last_name">
+
+      <label for="email">Email </label>
+      <input required id="email" type="text" formControlName="email">
+
+      <label for="password">Password </label>
+      <input required type="password" id="password" formControlName="password">
+
+      <label for="user-type">Type </label>
+      <select id="user-type" formControlName="user_type">
+        <option *ngFor="let type of types" [ngValue]="type">{{ type }}</option>
+      </select>
+
+      <div class="d-flex justify-content-center p-2">
+        <button mat-flat-button color="primary" (click)="createUser()">Submit</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+
+
+
